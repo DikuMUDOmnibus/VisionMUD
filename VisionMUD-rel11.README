@@ -1,0 +1,108 @@
+#########################################################################
+# VisionMUD-rel11.README              VisionMUD [beargie.kryha.sk 5000] #
+# written by Yilard of VisionMUD [yilard@earthling.net]			#
+#########################################################################
+
+Release 1.1
+
+This is bugfixed release of VisionMUD. For details check my homepage:
+
+		http://www.elf.stuba.sk/~markovla
+
+--------------------------------------------------------------------------
+
+VisionMUD code released by Yilard of VisionMUD. Hope you'll enjoy this
+release (I think it's the most advanced code based on CircleMUD available
+for public).
+
+There are both .c code and mud library in this package, because i think
+it's almost useless to try to understand the code without checking also the
+format of library (there is lack of documentation :P )
+
+WARNING: This is not intended to be used by beginners. Advanced knowledge of
+your OS and c libraries might be needed in order to compile this.
+
+--------------------------------------------------------------------------
+
+This package includes code based on CircleMUD 3.0, originally bpl10
+automagically and manually patched up to bpl14. Bpl15 patch cannot be
+applied automagically due to some screw up in the patch proggie. But
+most of this patch has been added to the code (especially bugfixes) 
+previously by me as I could see :)
+
+--------------------------------------------------------------------------
+FEATURES of VisionMUD
+
+** Code based on CircleMUD 3.0 bpl 14.
+** 12 Classes (Quite strange though, they're quite mixed with some kind or
+   races).
+** About 40 areas, mostly Stock Circle, CAW, etc.
+** Over 400 commands, over 120 spells, 30 skills, lots of spec-procs.
+** Lot's of added zone, room, affect, room-affect, item flags, added item
+   types.
+** Object and alias saving of coorz :).
+** Working fully configurable trains with timetables.
+** Clan system. __CLAN OLC__!!! (not yet completed, though)
+** Enhanced MobProgs, allowing to do almost any activity in mobprog
+   (includes delaying script execution etc.), new triggers.
+** Menu-based VisionOLC (based on some early build of OasisOLC), with many
+   enhancements written by myself (online MobProg editor, assignment of
+   spec-procs online etc., __ONLINE HELP__!!!-check this out!!! ).
+** Lot's of added god commands, most of them commented in online help.
+** Dynamic room description loading to decrease the memory load.
+** Memory requirements about 5 Megs at startup.
+** Tested in various kinds of Unixes (Linux packages: RedHat, Monkey,
+   previous versions also on Ultrix) - see KNOWN BUGS.
+** Compressed worldfiles (and all indexed files :) - Using any external
+   unpacking utility such as gzip, bz2 or rar. Zipped and unzipped files may
+   be mixed.
+** Useful utilities and scripts (auto-generating indexes, converting
+   standard circle world files into ours).
+
+--------------------------------------------------------------------------
+KNOWN BUGS
+
+** Missing documentation
+** (Not really a bug) I've only makefile for Unixes (I would never try to
+   compile the VisionMUD under Windoze), I have not touched others!! My
+   configure and Makefile are obsolete because I haven't time so far to 
+   maintain them, so probably you'll have to edit them manually.
+** Zipping world files significantly slows down the booting process
+   (partially because they're unpacked one after another and not concurrently
+   and partially because most indexed files need to be unpacked 2 times - I'll
+   fix this in the future), so I do not recommend to use it when debugging
+   but only when there is a low quota or something. Otherwise it's quite ok, in
+   normal traffic to zip the worldfiles.
+
+--------------------------------------------------------------------------
+TO-DO's
+
+what I'm intended to do in the future:
+
+** Writing some documentation.
+** Finish help system (some missing topics, some in Slovak language etc.).
+** Ascii playerfiles.
+** Commands and OLC in dynamically loaded libraries (workin' on it :).
+** Some kind of buffering system... I've tried buffers by George Greer but
+   I've removed it because I've been getting HUGE memory leaks regularly.
+** Finish clan system.
+
+-------------------------------------------------------------------------
+CONDITIONS OF USE
+
+You can use any part of this mud or get inspired by this mud without any
+restriction if you accept original CircleMUD license and you fulfill my
+several requests:
+
+1. You must comply original circlemud license found in doc/license.doc
+2. Mention me (Yilard) somewhere in your mud, the place depends on the size 
+   of the portion you use: If you use whole code as a base for your mud, 
+   I want my handle and name to appear in the login screen just after names
+   of circlemud and dikumud authors saying I'm the author of the base. 
+   Otherwise if you use only a command or spec-proc mention me only
+   somewhere in the credits and it would be nice to credit all people I 
+   credit in my 'credits' (I might not be the author of the portion of code you
+   have actually used - just say you used visionmud)
+3. Send me an email to yilard@earthling.net telling me URL of your mud.
+4. If you distribude any part of this package this file must be present and
+   intact. 

@@ -1,0 +1,2 @@
+rm /DOS_DRIVES/G/cir_bak.tar
+tar -c * > /DOS_DRIVES/G/cir_bak.tar

@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+# This will make an index from the files in a dir
+# Copyright(c) 1998 Peter Hartman
+# Modifications (c) 1999 Vladimir >Yilard< Marko
+# for internal use by `fix_indexes' utility
+#
+$ROOT = "lib/world";
+
+$BLAH = $ARGV[0];
+system("cd $BLAH");
+$ls = `cd $ROOT/$BLAH; ls *.$BLAH*`;
+@ls = split(/\s+/,$ls);
+@new_array = "";
+
+open(FILE, ">$ROOT/$BLAH/index");
+
+$i = 0;
+
+foreach $ls (@ls)
+{ 
+  $new_array[$i] = $ls;
+#  $new_array[$i] =~ s/.$BLAH//;
+  $i++;
+}
+
+@new_array = sort numerically @new_array;
+
+foreach $new (@new_array)
+{
+#  $new= $new . ".$BLAH\n";
+  print FILE "$new\n";
+}
+
+print FILE "\$\n";
+
+close(FILE);
+
+sub numerically 
+{ ($a) <=> ($b) }

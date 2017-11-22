@@ -1,0 +1,32 @@
+#!/bin/csh -f
+# This script will generate indexes for all world components
+# This requires `fix_inx' perl script by Peter Hartman
+# Copyright (c) 1999 Vladimir >Yilard< Marko
+#
+set WORLD_ROOT = 'lib/world'
+set COMPONENTS = "wld zon mob obj shp gld"
+set MINI = "0 12 30"
+set FIX_UTIL = "./fix_inx"
+
+foreach com ($COMPONENTS)
+  echo Fixing indexes: $com
+  $FIX_UTIL $com
+  set mini_file = $WORLD_ROOT/$com/index.mini
+  echo > $mini_file
+  foreach min ($MINI)
+    if (-e $WORLD_ROOT/$com/$min.$com) then
+      echo $min.$com >> $mini_file
+    else
+      ls -l $WORLD_ROOT/$com/$min.$com* >>& /dev/null
+      if ($status == 0) then
+        set temp = $WORLD_ROOT/$com/$min.$com* >>& /dev/null
+        set temp = $temp[1]
+        echo $min.$com.$temp[1]:e >> $mini_file
+      endif
+    endif
+  end 
+  echo '$' >> $mini_file 
+  echo >> $mini_file 
+end
+
+  

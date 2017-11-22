@@ -1,0 +1,20 @@
+#!/bin/csh -f
+
+cd /home/mud/circle
+
+if (-r ".killscript") then
+	echo ".killscript found exitting..."
+	exit
+endif
+
+set isrunning = `ps xu | grep mud | grep -c '/home/mud/circle/autorun'`
+
+echo $isrunning > pok
+
+if ($isrunning == 0) then
+	/home/mud/circle/autorun &
+	date >> chauto.restart
+	rm -f pok
+        echo "som tu"
+endif
+

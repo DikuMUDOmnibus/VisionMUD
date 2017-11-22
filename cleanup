@@ -1,0 +1,9 @@
+#!/bin/csh -f
+
+set DEL_PATH = "."
+
+if ($#argv > 1) set DEL_PATH = argv[1]
+
+echo CLEANUP: "$DEL_PATH"
+find $DEL_PATH \( -name "*~" -or -name "*.bak" -or -name "core" -or -name "DEADJOE" \) -exec rm -f {} \;
+

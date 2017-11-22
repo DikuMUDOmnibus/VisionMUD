@@ -1,0 +1,35 @@
+#!/usr/bin/expect -f
+#
+# This script is used for automatic logging into VisionMUD using telnet.
+# I recomend the use of this only for debugging purposes.
+# Copyright (C)1999 Vladimir >Yilard< Marko
+#
+# NOTE: The login and password are stored here, because if it'd be specified
+#       on the command line it could be visible using `w' command.
+#       Make sure to set mode of this file to 700!!!!
+#
+
+set COMMAND	"telnet" 
+set LOCATION	"localhost"
+set PORT	"4000"
+set USERNAME	"Yilard"
+set PASSWORD	"Write your pass here!"
+
+# This doesn't cope any way with color codes (but works fine)
+# You have to change the strings which are looked up, if you change them in
+# the VisionMUD code.
+spawn $COMMAND $LOCATION $PORT
+expect "Do you support"	
+send "Y\r"
+expect "By what name"
+send "$USERNAME\r"
+expect "Password:"
+# The delay is here to avoid dumping passwd onto screen
+sleep 0.01
+send "$PASSWORD\r"
+expect "PRESS RETURN"
+send "\r"
+expect "Make your choice"
+send "1\r"
+interact
+
